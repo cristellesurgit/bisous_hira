@@ -1,0 +1,378 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rajdhani:wght@500;700&display=swap');
+
+/* Style Général */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #090a15;
+    background-image: 
+        radial-gradient(circle at 50% 50%, rgba(122, 60, 255, 0.15) 0%, transparent 80%),
+        linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0%, transparent 100%),
+        repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.03) 0px, rgba(255, 255, 255, 0.03) 1px, transparent 1px, transparent 4px);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 20px 20px 20px;
+    color: #e0e6ed;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+/* BARRE DE NAVIGATION EN HAUT */
+.top-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: rgba(16, 20, 38, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid #00f0ff;
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    z-index: 100;
+}
+
+.nav-links {
+    display: flex;
+    gap: 10px;
+}
+
+.nav-item {
+    background: transparent;
+    border: 1px solid transparent;
+    color: #8a99ad;
+    padding: 8px 12px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.6rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.nav-item:hover, .nav-item.active {
+    color: #00f0ff;
+    border-color: #00f0ff;
+    background: rgba(0, 240, 255, 0.1);
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.4);
+}
+
+.nav-logout {
+    color: #ff007f;
+    text-decoration: none;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.55rem;
+    padding: 8px 12px;
+    border: 1px solid #ff007f;
+    border-radius: 4px;
+    background: rgba(255, 0, 127, 0.1);
+    transition: all 0.2s ease;
+}
+
+.nav-logout:hover {
+    background: #ff007f;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(255, 0, 127, 0.8);
+}
+
+/* Carte principale - HUD Gaming */
+.container {
+    background: rgba(16, 20, 38, 0.85);
+    backdrop-filter: blur(10px);
+    padding: 30px 40px;
+    border-radius: 12px;
+    border: 2px solid #00f0ff;
+    box-shadow: 
+        0 0 20px rgba(0, 240, 255, 0.3),
+        inset 0 0 15px rgba(0, 240, 255, 0.15);
+    max-width: 450px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    clip-path: polygon(
+        0 15px, 15px 0, 
+        calc(100% - 15px) 0, 100% 15px, 
+        100% calc(100% - 15px), calc(100% - 15px) 100%, 
+        15px 100%, 0 calc(100% - 15px)
+    );
+}
+
+.container::before {
+    content: 'PLAYER 1 READY';
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #00f0ff;
+    color: #090a15;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.55rem;
+    padding: 3px 10px;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+/* SECTIONS ONGLETS */
+.content-section {
+    display: none;
+}
+
+.content-section.active {
+    display: block;
+}
+
+/* Titre / Sous-titre */
+.subtitle {
+    color: #ff007f;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    text-shadow: 0 0 8px rgba(255, 0, 127, 0.8);
+    text-transform: uppercase;
+}
+
+/* Photo */
+.photo-container {
+    margin: 20px 0;
+    position: relative;
+}
+
+.couple-img {
+    width: 100%;
+    max-height: 280px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 2px solid #ff007f;
+    box-shadow: 0 0 15px rgba(255, 0, 127, 0.4);
+    filter: saturate(1.2) contrast(1.05);
+}
+
+/* Formulaire */
+.login-form {
+    margin-top: 20px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.65rem;
+    color: #00f0ff;
+    letter-spacing: 1px;
+    text-shadow: 0 0 5px rgba(0, 240, 255, 0.5);
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 15px;
+    background: rgba(8, 12, 24, 0.9);
+    border: 2px solid #2e3859;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    color: #fff;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: bold;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #00f0ff;
+    box-shadow: 0 0 12px rgba(0, 240, 255, 0.6);
+    background: rgba(16, 24, 48, 0.9);
+}
+
+.hint {
+    display: block;
+    margin-top: 8px;
+    font-size: 0.85rem;
+    color: #8a99ad;
+    text-align: center;
+    font-style: italic;
+}
+
+/* Boutons principaux */
+.btn {
+    background: linear-gradient(135deg, #ff007f 0%, #7a3cff 100%);
+    color: #fff;
+    border: none;
+    padding: 14px 25px;
+    border-radius: 6px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: 100%;
+    margin-top: 10px;
+    box-shadow: 0 0 15px rgba(255, 0, 127, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 25px rgba(255, 0, 127, 0.8);
+    background: linear-gradient(135deg, #ff2a9d 0%, #8f52ff 100%);
+}
+
+.btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 0 10px rgba(255, 0, 127, 0.4);
+}
+
+/* Error */
+.error {
+    background: rgba(255, 0, 60, 0.15);
+    color: #ff3366;
+    border: 1px solid #ff003c;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.6rem;
+    line-height: 1.4;
+    box-shadow: 0 0 10px rgba(255, 0, 60, 0.3);
+}
+
+/* Cartes de contenu */
+.welcome-card h1 {
+    color: #00f0ff;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.6);
+}
+
+.welcome-card p {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: #c0cdf0;
+    font-weight: 500;
+}
+
+/* Boîte Lettre d'amour */
+.letter-box {
+    background: rgba(8, 12, 24, 0.8);
+    border: 1px dashed #ff007f;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: left;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #e0e6ed;
+    box-shadow: inset 0 0 10px rgba(255, 0, 127, 0.2);
+}
+
+.letter-box p {
+    margin-bottom: 12px;
+}
+
+/* Mini-Jeux Styles */
+.arcade-menu {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.btn-game {
+    background: rgba(0, 240, 255, 0.1);
+    border: 2px solid #00f0ff;
+    color: #00f0ff;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-family: 'Press Start 2P', cursive, sans-serif;
+    font-size: 0.6rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-game.active, .btn-game:hover {
+    background: #00f0ff;
+    color: #090a15;
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.8);
+}
+
+.game-canvas-container {
+    position: relative;
+    width: 100%;
+    height: 320px;
+    background: #05070e;
+    border: 2px solid #ff007f;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(255, 0, 127, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+canvas {
+    display: block;
+    background: transparent;
+}
+
+.whack-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.hole {
+    height: 70px;
+    background: #101830;
+    border: 2px solid #2e3859;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.1s;
+}
+
+.hole:active {
+    transform: scale(0.9);
+}
+
+.game-score {
+    font-family: 'Press Start 2P', cursive, sans-serif;
+    font-size: 0.8rem;
+    color: #00f0ff;
+    margin-top: 15px;
+    text-shadow: 0 0 5px rgba(0, 240, 255, 0.8);
+}
+
+/* Responsive pour mobiles */
+@media (max-width: 480px) {
+    .top-navbar {
+        padding: 0 10px;
+    }
+    .nav-item, .nav-logout {
+        font-size: 0.5rem;
+        padding: 6px 8px;
+    }
+}
